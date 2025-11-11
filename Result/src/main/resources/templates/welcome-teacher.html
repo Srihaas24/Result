@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	
+	<body>
+		<h1 th:text="${'Welcome ' + tname}"></h1>
+		
+		<h1>Upload marks of student</h1>
+		
+		<div>
+			<form action="findStudent" method="post">
+				<input type="hidden" name="t_name" th:value="${tname}" readonly/>
+				<br/>
+				<br/>
+				<label>Student's Rollno.:</label>
+				<input type="text" name="rollno">
+				
+				<button type="submit">Find student</button>
+			</form>
+		</div>
+	</body>
+</html>

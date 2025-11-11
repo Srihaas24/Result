@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	
+	<style>
+		#student-marks{
+			width:100vw;
+			height:100vh;
+			display:flex;
+			align-items:center;
+			justify-content:center;
+		}
+		
+		input{
+			height:40px;
+			width:250px;
+			font-size:20px;
+			outline:none;
+			border-radius:12px;
+			padding-left:10px;
+		}
+	</style>
+	
+	<body>
+	<h1 th:text="${'Welcome'+tname}"></h1>
+		<div id="student-marks">
+			<form action="submitStudentMarks" method="post">
+				<input type="hidden" th:value="${tname}" name="teach_name" readonly/>
+				<input th:value="${rollno}" name="rollno" readonly> <br/><br/>
+				<input placeholder ="Add Java marks" type="text" name="jmarks"> <br/><br/>
+				<input placeholder ="Add React marks" type="text" name="rmarks"> <br/><br/>
+				<input placeholder ="Add Oracle marks" type="text" name="omarks"> <br/><br/>
+				<button type="Submit">Submit marks</button>
+			</form>
+		</div>
+	</body>
+</html>

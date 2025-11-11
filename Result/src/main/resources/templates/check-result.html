@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+
+<style>
+	div{
+		width:100vw;
+		height:100vh;
+		display:flex;
+		align-items:center;
+		justify-content:center;
+	}
+	
+	form{
+		padding:30px;
+		border:1px solid black;
+	}
+	
+	label{
+		font-size:20px;
+		font-weight:700;
+		float:left;
+	}
+	
+	input{
+		height:40px;
+		width:250px;
+		border-radius:12px;
+		font-size:20px;
+		float:right;
+	}
+	
+</style>
+
+	<body>
+		<div>
+			<form action="validateResult" method="post">
+				<label>Enter Your Roll No.</label>
+				<input type="text" name="rollno"/>
+				<br/><br/>
+				<label>Enter Your DOB:</label>
+				<input type="date" name="dob"/>
+				<br/><br/>
+				<button type="submit">Check Result</button>
+			</form>
+		</div>	
+	</body>
+</html>

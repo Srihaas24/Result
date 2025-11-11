@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	
+	<style>
+		#teacher{
+			width:100vw;
+			height:100vh;
+			display:flex;
+			align-items:center;
+			justify-content:center;
+		}
+		
+		form{
+			padding:20px;
+			border:2px solid black;
+		}
+		
+		label{
+			font-size:20px;
+			float:left;
+		}
+		
+		input{	
+			height:40px;
+			width:250px;
+			font-size:20px;
+			outline:none;
+			border-radius:12px;
+		}
+		
+		a{
+			text-decoration:none;
+		}
+		
+		button{
+			height:45px;
+			width:fit-content;
+			padding:10px;
+			border-radius:12px;
+			background-color:blue;
+			color:white;
+		}
+	</style>
+	
+	<body>
+		<div id="teacher">
+			<form action="validateTeacher" method="POST">
+				<label>Teacher ID:</label>
+				<input type="text" name="id">
+				<br/><br/>
+				<label>Password:</label>
+				<input type="password" name="password">
+				
+				<a href="validateTeacher"><button type="submit">Login</button></a>
+			</form>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	
+	<style>	
+	
+		*{
+			padding:0;
+			margin:0;
+			box-sizing:border-box;
+		}
+		
+		#container{
+			width:100vw;
+			height:100vh;
+			display:flex;
+			row-gap:20px;
+			flex-direction:column;
+			align-items:center;
+			justify-content:center;
+			
+		}
+		
+		table,tr,th,td{
+			border:1px solid black;
+			border-collapse:collapse;
+		}
+		
+		th{
+			font-size:22px;
+			font-weight:700;
+			padding:5px;
+		}
+		
+		td{
+			font-size:20px;
+			font-weight:600;
+			padding:5px;
+		}
+	</style>
+	
+	<body>
+		<div id="container">
+			<h1>All Students</h1>
+			
+			<form th:action="@{/showStudents}">
+				<input type="text" name="keyword" placeholder="Search By Name" th:value="${keyword}"/>
+				<button type="submit">Search</button>
+			</form>
+			
+			<table>
+			<tr>
+				<th>Roll no.</th>
+				<th>Name</th>
+				<th>D-O-B</th>
+				<th>Mother's Name</th>
+				<th>Father's Name</th>
+			</tr>
+			<!--
+			<tr th:each="students :${stu}">
+				<td th:text="${students.rollno}"></td>
+				<td th:text="${students.name}"></td>
+				<td th:text="${students.dob}"></td>
+				<td th:text="${students.m_name}"></td>
+				<td th:text="${students.f_name}"></td>
+			</tr>
+			 -->
+			
+			<tr th:each="students :${stu.content}">
+				<td th:text="${students.rollno}"></td>
+				<td th:text="${students.name}"></td>
+				<td th:text="${students.dob}"></td>
+				<td th:text="${students.m_name}"></td>
+				<td th:text="${students.f_name}"></td>
+			</tr>
+		</table>
+		
+		<div style="display:flex; column-gap:20px; font-size:20px;">
+			<a th:if="${!stu.first}"
+				th:href="@{'/showStudents?page=' + ${stu.number-1} + '&size=' + ${stu.size}}"
+			>Previous</a>
+			
+			<span th:text="${stu.number+1}"></span>
+			
+			<a th:if="${!stu.last}"
+				th:href="@{'/showStudents?page=' + ${stu.number+1} + '&size=' + ${stu.size}}"	
+			>Next</a>
+		</div>
+		
+		<a href="/">Go to Home</a>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+<style>
+	.container{
+		display:flex;
+		align-items:center;
+		justify-content:center;
+		column-gap:30px;
+	}
+	
+	#students{
+	height:400px;
+	width:300px;
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	justify-content:center;
+	row-gap:10px;
+	padding:20px;
+	border:1px solid black;
+	}
+	
+	#teachers{
+	height:400px;
+	width:300px;
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	justify-content:center;
+	padding:20px;
+	border:1px solid black;
+	}
+	
+	button{
+		height:40px;
+		display:block;
+		width:180px;
+		text-decoration:none;
+		font-size:20px;
+		background-color:blue;
+		color:white;
+		border-radius:12px;
+		border:none;
+		
+	}
+	
+	#addStu{
+		display:none;
+		padding:20px;
+		border:1px solid black;
+		position:absolute;
+		background-color:coral;
+		color:white;
+		font-size:20px;
+		border-radius:20px;
+	}
+	
+	#editStu{
+		display:none;
+		padding:20px;
+		border:1px solid black;
+		position:absolute;
+		background-color:coral;
+		color:white;
+		font-size:20px;
+		border-radius:20px;
+	}
+	
+	#deleteStu{
+		display:none;
+		padding:20px;
+		border:1px solid black;
+		position:absolute;
+		background-color:coral;
+		color:white;
+		font-size:20px;
+		border-radius:20px;
+	}
+	
+	
+	
+	
+	#addTeacher{
+		display:none;
+		padding:20px;
+		border:1px solid black;
+		position:absolute;
+		background-color:coral;
+		color:white;
+		font-size:20px;
+		border-radius:20px;
+	}
+	
+	#editTeacher{
+		display:none;
+		padding:20px;
+		border:1px solid black;
+		position:absolute;
+		background-color:coral;
+		color:white;
+		font-size:20px;
+		border-radius:20px;
+	}
+	
+	#deleteTeacher{
+		display:none;
+		padding:20px;
+		border:1px solid black;
+		position:absolute;
+		background-color:coral;
+		color:white;
+		font-size:20px;
+		border-radius:20px;
+	}
+	
+	label{
+		font-size:22px;
+		font-weight:600;
+		float:left;
+	}
+	
+	input{
+		height:40px;
+		width:250px;
+		border:1px solid black;
+		outline:none;
+		border-radius:none;
+		font-size:22px;
+		float:right;
+	}
+	
+</style>
+	<body>
+		<h1 style="text-align:center">Welcome Admin</h1>
+		
+		<div class="container">
+			<div id="students">
+				<h1>Add/Edit/Remove Student</h1>
+				<button onclick="addStu()">Add a student</button>
+				<br/>
+				<button onclick="editStu()">Edit a student</button>
+				<br/>
+				<button onclick="deleteStu()">Delete a student</button>
+				
+				<a href="showStudents"><button>View all Students</button></a>
+			</div>
+								
+			<div id="teachers">
+				<h1>Add/Edit/Remove Teacher</h1>
+				<button onclick="addTeacher()">Add a Teacher</button>
+				<br/>
+				<button onclick="addTeacher()">Edit a Teacher</button>
+				<br/>
+				<button onclick="addTeacher()">Delete a Teacher</button>
+			</div>
+			
+			
+			
+			
+			<div id = "addStu">
+			
+				<img style="cursor:pointer" onclick = "addStuRemove()" src="/images/remove.png" width="50">
+			
+				<form action="addStu" method="POST">
+					<label>Roll no.:</label>
+					<input type = "text" name = "stu_id"/>
+					<br><br>
+					
+					<label>Name:</label>
+					<input type = "text" name = "name"/>
+					<br><br>
+					
+					<label>Fahter's Name:</label>
+					<input type = "text" name = "f_name"/>
+					<br><br>
+					
+					<label>Mother's Name:</label>
+					<input type = "text" name = "m_name"/>
+					<br><br>
+					
+					<label>Date of Birth:</label>
+					<input type = "date" name = "dob"/>
+					<br><br>
+					
+					<input type = "Submit"/>							
+				</form>
+			</div>
+			
+			<div id = "editStu">
+			
+				<img style="cursor:pointer" onclick = "editStuRemove()" src="/images/remove.png" width="50">
+			
+				<form action="editStu" method="POST">
+					<label>Roll no.:</label>
+					<input type = "text" name = "stu_id"/>
+					<br><br>
+					
+					<label>Name:</label>
+					<input type = "text" name = "name"/>
+					<br><br>
+					
+					<label>Fahter's Name:</label>
+					<input type = "text" name = "f_name"/>
+					<br><br>
+					
+					<label>Mother's Name:</label>
+					<input type = "text" name = "m_name"/>
+					<br><br>
+					
+					<label>Date of Birth:</label>
+					<input type = "date" name = "dob"/>
+					<br><br>
+					
+					<input type = "Submit"/>							
+				</form>
+			</div>
+			
+			<div id = deleteStu>
+				<img style="cursor:pointer" onclick = "deleteStuRemove()" src="/images/remove.png" width="50">
+				
+				<form action="deleteStu" method = "POST">
+					<label>Roll No.:</label>
+					<input type="text" name="st_id"><br/><br/>
+					<input type="submit">
+				</form>	
+			</div>
+			
+			
+			
+			
+			<div id = "addTeacher">
+				<img style="cursor:pointer" onclick = "addTeachRemove()" src="/images/remove.png" width="50">
+				<form action="addTeacher" method="POST">
+					
+					<label>Name:</label>
+					<input type = "text" name = "name"/>
+					<br><br>
+					
+					<label>Id:</label>
+					<input type = "text" name = "id"/>
+					<br><br>
+					
+					<label>Password:</label>
+					<input type = "text" name = "password"/>
+					<br><br>
+					
+					<input type = "Submit"/>							
+				</form>
+			</div>
+			
+			<div id = "editTeacher">
+				<img style="cursor:pointer" onclick = "editTeachRemove()" src="/images/remove.png" width="50">
+				<form action="ediTeacher" method="POST">
+					<label>Name:</label>
+					<input type = "text" name = "name"/>
+					<br><br>
+					
+					<label>Id:</label>
+					<input type = "text" name = "id"/>
+					<br><br>
+					
+					<label>Password:</label>
+					<input type = "text" name = "password"/>
+					<br><br>
+					
+					<input type = "Submit"/>							
+				</form>
+			</div>
+			
+			<div id = deleteTeacher>
+				<img style="cursor:pointer" onclick = "deleteTeachRemove()" src="/images/remove.png" width="50">
+				
+				<form action="deleteTeacher" method = "POST">
+					<label>Id:</label>
+					<input type="text" name="id"><br/><br/>
+					<input type="submit">
+				</form>	
+			</div>
+			
+			
+			
+			<script>
+				function addStu()
+				{
+					document.getElementById("addStu").style.display="block"
+				}
+				
+				function addStuRemove()
+				{
+					document.getElementById("addStu").style.display="none"
+				}
+				function editStu()
+				{
+					document.getElementById("editStu").style.display="block"
+				}
+				
+				function editStuRemove()
+				{
+					document.getElementById("editStu").style.display="none"
+				}
+				
+				function deleteStu()
+				{
+					document.getElementById("deleteStu").style.display="block"
+				}
+				function deleteStuRemove()
+				{
+					document.getElementById("deleteStu").style.display="none"
+				}
+				
+				
+				
+				function addTeacher()
+				{
+					document.getElementById("addTeacher").style.display="block"
+				}
+				function addTeachRemove()
+				{
+					document.getElementById("addTeacher").style.display="none"
+				}
+				
+				function editTeacher()
+				{
+					document.getElementById("editTeacher").style.display="block"
+				}
+				function editTeachRemove()
+				{
+					document.getElementById("editTeacher").style.display="none"
+				}
+
+				function deleteTeacher()
+				{
+					document.getElementById("deleteTeacher").style.display="block"
+				}				
+				function deleteTeachRemove()
+				{
+					document.getElementById("deleteTeacher").style.display="none"
+				}
+			</script>
+			
+		</div>
+	</body>
+</html>

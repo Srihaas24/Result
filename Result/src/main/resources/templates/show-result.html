@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	
+	<style>	
+	
+		*{
+			padding:0;
+			margin:0;
+			box-sizing:border-box;
+		}
+		
+		#main{
+			width:100vw;
+			height:100vh;
+			display:flex;
+			row-gap:20px;
+			flex-direction:column;
+			align-items:center;
+			justify-content:center;
+			
+		}
+		
+		table,tr,th,td{
+			border:1px solid black;
+			border-collapse:collapse;
+		}
+		
+		th{
+			font-size:22px;
+			font-weight:700;
+			padding:5px;
+		}
+		
+		td{
+			font-size:20px;
+			font-weight:600;
+			padding:5px;
+		}
+	</style>
+	
+	<body>
+		<h1 style="text-align:center">Student's Result</h1>
+		<div id="main">
+			<div>
+				<h1 th:text="${'Name: ' + name}"></h1>
+				<h1 th:text="${'Roll No.: '+ rollno}"></h1>
+				<h1 th:text="|Mother's Name: ${mname}|"></h1>
+				<h1 th:text="|Father's Name: ${fname}|"></h1>
+			</div> 
+			
+			<table>
+				<tr>
+					<th>Subject Name</th>
+					<th>Obtained Marks</th>
+					<th>Total Marks</th>
+				</tr>
+				<tr>
+					<td>Java</td>
+					<td th:text="${jamrks}"></td>
+					<td>100</td>
+				</tr>
+				<tr>
+					<td>React</td>
+					<td th:text="${rmarks}"></td>
+					<td>100</td>
+				</tr>
+				<tr>
+					<td>Oracle</td>
+					<td th:text="${omarks}"></td>
+					<td>100</td>
+				</tr>
+				<tr>
+					<td colspan="2">Result Status</td>
+					<td style="color:green" th:if="${status=='Passed'}"th:text="${status}"></td>
+					<td style="color:red" th:if="${status=='Failed'}"th:text="${status}"></td>
+				</tr>		
+			</table>
+			<a href="/">Go to Home</a>
+		</div>
+	</body>
+</html>
